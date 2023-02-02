@@ -1,1 +1,6 @@
-<img src="" alt="" />
+<div>
+  <img src="{{ current['url'] }}" alt="" />
+</div>
+<div *ngFor="let choice of choices">
+  <button (click)="onSelect(choice)">{{ choice["name"] }}</button>
+</div>
