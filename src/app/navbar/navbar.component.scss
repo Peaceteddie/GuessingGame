@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
 .title {
-  @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
 }
 
 .menu-button {
@@ -9,13 +10,21 @@
   --color-dark: #ccc;
   --color-shadow: #aaa;
 
-  background: linear-gradient(to right bottom, var(--color-light), var(--color-dark));
+  background: linear-gradient(
+    to right bottom,
+    var(--color-light),
+    var(--color-dark)
+  );
   border-radius: 10px;
   box-shadow: 2px 2px var(--color-shadow), -2px -2px var(--color-light);
 
   :active {
     @extend .menu-button;
-    background: linear-gradient(to left top, var(--color-light), var(--color-dark));
+    background: linear-gradient(
+      to left top,
+      var(--color-light),
+      var(--color-dark)
+    );
   }
 }
 
