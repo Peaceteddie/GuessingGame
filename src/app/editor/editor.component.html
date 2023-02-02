@@ -1,12 +1,55 @@
-<main style="position: relative; top: 65px">
-  <table class="bg-danger">
-    <tr>
-      <thead>
-        Name:
-      </thead>
-      <thead>
-        URL:
-      </thead>
-    </tr>
-  </table>
+<main
+  class="bg-info container d-grid px-5"
+  style="position: relative; top: 65px"
+>
+  <div
+    class="border border-light container d-flex justify-content-center mt-5 p-3 rounded-5"
+  >
+    <form class="d-flex" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="col mx-5">
+        <div class="row">
+          <label for="new-item-name">Name:</label>
+          <input id="new-item-name" formControlName="name" type="text" />
+        </div>
+        <div class="row">
+          <label for="new-item-url"> URL:</label>
+          <input id="new-item-url" formControlName="url" type="text" />
+        </div>
+      </div>
+      <div class="align-self-center col mt-3">
+        <button
+          class="btn btn-primary border-light-subtle"
+          type="submit"
+          style="height: 60px; width: 180px"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="bg-gradient d-block my-5 p-5 rounded-5">
+    <table class="h-100 table-responsive-md w-100">
+      <tr class="border-bottom" style="height: 40px">
+        <th class="col-auto">Name</th>
+        <th class="col-auto">URL</th>
+        <th class="col-auto"></th>
+      </tr>
+      <tr *ngFor="let item of Items" class="border-bottom">
+        <td class="col-4">
+          {{ item["name"] }}
+        </td>
+        <td>
+          {{ item["url"] }}
+        </td>
+        <td>
+          <button class="btn border-0 m-2 delete" (click)="Delete(item['id'])">
+            <span class="material-symbols-rounded m-0 p-0 delete-icon"
+              >Delete</span
+            >
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </main>

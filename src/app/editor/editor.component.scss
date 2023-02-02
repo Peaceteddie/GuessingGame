@@ -1,0 +1,10 @@
+.delete {
+  background: linear-gradient(to top left, #333, #f33, #eee);
+  box-shadow: 1px 1px 5px #000, -1px -1px 5px #fff;
+  text-shadow: 1px 1px hotpink;
+}
+.delete > .delete-icon {
+  font-variation-settings: "fill" 0;
+  position: relative;
+  top: 2px;
+}
