@@ -1,6 +1,22 @@
-<div>
-  <img src="{{ current['url'] }}" alt="" />
-</div>
-<div *ngFor="let choice of choices">
-  <button (click)="onSelect(choice)">{{ choice["name"] }}</button>
-</div>
+<main
+  class="align-items-center d-flex flex-column justify-content-around main pt-5"
+  [style]="
+    guess === true
+      ? 'background: linear-gradient(#fff, #afa);'
+      : 'background: linear-gradient(#fff,#faa);'
+  "
+>
+  <span class="fs-1 pt-5"
+    >{{ score }}/{{ total }} ({{ (score / total) * 100 }}%)</span
+  >
+  <img [src]="current?.url" alt="" style="max-width: 50%; max-height: 50%" />
+  <div class="d-flex flex-row flex-wrap gap-5 justify-content-center my-5">
+    <button
+      class="btn btn-info fs-3"
+      *ngFor="let choice of choices"
+      (click)="onSelect(choice)"
+    >
+      {{ choice.name }}
+    </button>
+  </div>
+</main>

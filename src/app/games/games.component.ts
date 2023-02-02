@@ -1,4 +1,3 @@
-import { ReturnStatement } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 
@@ -10,8 +9,11 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 export class GamesComponent implements OnInit {
   constructor(private dbservice: NgxIndexedDBService) {}
 
+  guess = false;
+
   total: number = 0;
   score: number = 0;
+
   numChoice: number = 4;
 
   current: any;
@@ -28,6 +30,7 @@ export class GamesComponent implements OnInit {
     this.dbservice.getAll('cards').subscribe((list) => {
       this.shuffled = this.shuffle(list);
       this.allItems = list;
+      this.PlayAnother();
     });
   }
 
@@ -49,8 +52,10 @@ export class GamesComponent implements OnInit {
   rndSelection(num: number, array: any[], avoid: number) {
     let selection: any[] = [];
     if (array.length < num) return selection;
+
     while (selection.length < num) {
       let rnd = Math.floor(Math.random() * array.length);
+      if (selection.includes(array[rnd])) continue;
       if (array[rnd]['id'] === avoid) continue;
       selection.push(array[rnd]);
     }
@@ -59,10 +64,12 @@ export class GamesComponent implements OnInit {
 
   onSelect(card: any) {
     if (card['name'] === this.current['name']) {
+      this.guess = true;
       this.score++;
-      this.total++;
-
-      this.PlayAnother();
     }
+    else this.guess = false;
+    this.total++;
+
+    this.PlayAnother();
   }
 }

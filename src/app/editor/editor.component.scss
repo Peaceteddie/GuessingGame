@@ -1,10 +1,18 @@
+main.main{
+  background: linear-gradient(#eee, #aae) fixed;
+}
 .delete {
-  background: linear-gradient(to top left, #333, #f33, #eee);
-  box-shadow: 1px 1px 5px #000, -1px -1px 5px #fff;
+  background: linear-gradient(to top left, #a55, #f33, #faa);
+  box-shadow: 1px 1px 5px #000, -2px -2px 5px #fff;
   text-shadow: 1px 1px hotpink;
 }
 .delete > .delete-icon {
   font-variation-settings: "fill" 0;
   position: relative;
   top: 2px;
+}
+td.url {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

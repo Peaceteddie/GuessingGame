@@ -1,45 +1,48 @@
 <main
-  class="bg-info container d-grid px-5"
-  style="position: relative; top: 65px"
+  class="d-flex flex-column justify-content-center main p-5"
 >
   <div
-    class="border border-light container d-flex justify-content-center mt-5 p-3 rounded-5"
+    class="align-content-end border border-light d-flex justify-content-center m-5 p-5 rounded-5"
   >
-    <form class="d-flex" [formGroup]="addForm" (ngSubmit)="onSubmit()">
-      <div class="col mx-5">
-        <div class="row">
-          <label for="new-item-name">Name:</label>
-          <input id="new-item-name" formControlName="name" type="text" />
-        </div>
-        <div class="row">
-          <label for="new-item-url"> URL:</label>
-          <input id="new-item-url" formControlName="url" type="text" />
-        </div>
-      </div>
-      <div class="align-self-center col mt-3">
-        <button
-          class="btn btn-primary border-light-subtle"
-          type="submit"
-          style="height: 60px; width: 180px"
-        >
-          Add
-        </button>
-      </div>
+    <form
+      class="align-items-end d-flex flex-wrap gap-5 justify-content-around"
+      [formGroup]="addForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <label for="new-item-name" class="d-flex flex-column"
+        >Name:
+        <input
+          id="new-item-name"
+          formControlName="name"
+          required="true"
+          type="text"
+        />
+      </label>
+      <label for="new-item-url" class="d-flex flex-column">
+        URL:
+        <input
+          id="new-item-url"
+          formControlName="url"
+          required="true"
+          type="url"
+        />
+      </label>
+      <button class="btn btn-primary px-5" type="submit">Add</button>
     </form>
   </div>
 
-  <div class="bg-gradient d-block my-5 p-5 rounded-5">
-    <table class="h-100 table-responsive-md w-100">
-      <tr class="border-bottom" style="height: 40px">
-        <th class="col-auto">Name</th>
-        <th class="col-auto">URL</th>
-        <th class="col-auto"></th>
+  <div class="bg-gradient d-flex flex-column m-5 p-5 rounded-5">
+    <table class="w-100" style="table-layout: fixed; border-collapse: separate; border-spacing: 50px 0px">
+      <tr class="border-bottom" style="height: 60px">
+        <th class="col-2">Name</th>
+        <th class="col-3">URL</th>
+        <th class="col-1"></th>
       </tr>
       <tr *ngFor="let item of Items" class="border-bottom">
-        <td class="col-4">
+        <td>
           {{ item["name"] }}
         </td>
-        <td>
+        <td class="url">
           {{ item["url"] }}
         </td>
         <td>
