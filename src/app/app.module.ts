@@ -8,6 +8,7 @@ import { GamesComponent } from './games/games.component';
 import { EditorComponent } from './editor/editor.component';
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 const dbConfig: DBConfig = {
   name: 'library',
@@ -30,6 +31,7 @@ const dbConfig: DBConfig = {
     NavbarComponent,
     GamesComponent,
     EditorComponent,
+    HomeComponent,
   ],
   imports: [
     FormsModule,

@@ -1,7 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+nav,
+.offcanvas {
+  background: linear-gradient(#fff, 2%, transparent, 98%, #000) !important;
+}
 
-.title {
-  font-family: "Fredoka One", cursive;
+.navbar {
+  height: 5rem;
+}
+
+.navbar-toggler,
+.btn-close {
+  margin-right: 2rem;
+}
+
+@media (min-width: 992px) {
+  #navbarOffcanvasLg {
+    visibility: hidden !important;
+  }
+  .offcanvas > * {
+    visibility: visible;
+  }
 }
 
 .menu-button {
